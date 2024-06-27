@@ -1,0 +1,23 @@
+@import "../../colors.css";
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: var(--mainDark);
+  color: var(--mainWhite);
+  padding: 0.5rem 2rem;
+  margin: 0;
+}
+
+.footer__title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer__title h3 {
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+}

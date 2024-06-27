@@ -1,0 +1,16 @@
+root,
+header,
+main,
+footer {
+  --mainDark: #111111;
+  --mainLight: #c8dbeb;
+  --mainWhite: #ffffff;
+
+  --accentOrange: #ff6b18;
+  --accentBlue: #009fdf;
+
+  --cardManageBtn: #628aab;
+  --cardManageBtnDisabled: #afc6d9;
+  --cardManageBtnHover: #1a75c1;
+  --cardManageBtnActive: #111111;
+}

@@ -1,0 +1,21 @@
+@import "../../colors.css";
+
+#home-bg__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.main_home {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.main__home-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+}

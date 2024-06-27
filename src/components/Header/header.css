@@ -1,0 +1,27 @@
+@import "../../colors.css";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--mainDark);
+  color: var(--mainWhite);
+  padding: 0.5rem 2rem;
+  margin: 0;
+}
+.header__title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header__title h1 {
+  font-size: 2.25rem;
+  padding: 0;
+  margin: 0;
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}

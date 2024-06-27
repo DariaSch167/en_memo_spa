@@ -1,0 +1,8 @@
+@import "../../colors.css";
+
+main {
+  flex-grow: 1;
+}
+.main {
+  height: 100%;
+}
