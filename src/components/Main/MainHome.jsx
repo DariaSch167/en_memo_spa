@@ -1,14 +1,14 @@
 import React from "react";
-import mainHome from "../../images/main_home-bg.jpg";
 import "./mainHome.css";
 import "../../colors.css";
+import HomeBg from "../../images/main_home-bg.jpg";
 
-function MenuElement(props) {
+function MenuElement() {
   return (
     <React.Fragment>
       <div className="main__home">
         <div className="main__home-bg">
-          <img id="home-bg__img" src={mainHome} alt="English Memocards" />
+          <img src={HomeBg} alt="English memo" />
         </div>
         <div className="main__home-btn">
           <button id="home-btn__go">Let's go!</button>

@@ -1,21 +1,44 @@
 @import "../../colors.css";
 
-#home-bg__img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.main_home {
+.main__home {
   position: relative;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .main__home-bg {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.main__home-bg img {
+  object-fit: cover;
+  object-position: top center;
+  width: 100%;
+  height: 100%;
+}
+
+#home-btn__go {
+  background-color: var(--accentBlue);
+  border: 2px solid var(--accentBlue);
+  border-radius: 0.5rem;
+  outline: none;
+  color: var(--mainWhite);
+  font-size: 3rem;
+  text-transform: uppercase;
+  padding: 1rem 5rem;
+}
+
+#home-btn__go:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+#home-btn__go:active {
+  background-color: var(--accentBlueDark);
+  border: 2px solid var(--accentBlueDark);
 }

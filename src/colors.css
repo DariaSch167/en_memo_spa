@@ -3,11 +3,13 @@ header,
 main,
 footer {
   --mainDark: #111111;
-  --mainLight: #c8dbeb;
+  --mainLight: #dac2aa;
   --mainWhite: #ffffff;
 
   --accentOrange: #ff6b18;
+  --accentOrangeDark: #e35a0d;
   --accentBlue: #009fdf;
+  --accentBlueDark: #035a7c;
 
   --cardManageBtn: #628aab;
   --cardManageBtnDisabled: #afc6d9;
