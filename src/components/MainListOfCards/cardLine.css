@@ -1,8 +1,16 @@
 .card__line {
   display: grid;
   grid-template-columns: 0.3fr repeat(4, 1fr);
+  grid-gap: 1rem;
   justify-content: center;
   align-items: center;
   width: 70%;
+  font-size: 1.25rem;
+}
+
+.card__line input {
+  outline: none;
+  border-color: white;
+  border-radius: 0.25rem;
   font-size: 1.25rem;
 }
