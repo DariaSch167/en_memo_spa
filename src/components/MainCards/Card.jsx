@@ -1,13 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./card.css";
 
 function Card(props) {
-  const [translateClicked, setTranslateCliked] = useState(false);
-
-  const handleShowTranslate = () => {
-    setTranslateCliked(!translateClicked);
-  };
-
   return (
     <React.Fragment>
       <div className="card">
@@ -15,10 +9,12 @@ function Card(props) {
           <h2 className="card__word-tags">Tag: &laquo;{props.tags}&raquo;</h2>
           <p className="card__word-en">{props.english}</p>
           <p className="card__word-transcription">{props.transcription}</p>
-          {translateClicked ? (
+          {props.translateClicked ? (
             <p className="card__word-ru">{props.russian}</p>
           ) : (
-            <button id="card-translate__btn" onClick={handleShowTranslate}>
+            <button
+              id="card-translate__btn"
+              onClick={props.handleShowTranslate}>
               Show translation
             </button>
           )}
