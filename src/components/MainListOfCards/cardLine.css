@@ -1,0 +1,8 @@
+.card__line {
+  display: grid;
+  grid-template-columns: 0.3fr repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  font-size: 1.25rem;
+}

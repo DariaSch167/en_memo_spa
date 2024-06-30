@@ -1,0 +1,16 @@
+.line__manage-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 0 1.25rem;
+  padding: 0.75rem;
+}
+
+.line__manage-btn:hover {
+  background-color: var(--accentOrange);
+  border-radius: 50%;
+}
+.line__manage-btn:active {
+  background-color: var(--accentOrangeSecond);
+  border-radius: 50%;
+}

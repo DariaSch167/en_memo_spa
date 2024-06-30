@@ -1,0 +1,19 @@
+.main__list {
+  background-color: var(--mainLight);
+}
+.main__list h2 {
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+}
+
+.line__list-title,
+.line__list-add,
+.line {
+  display: flex;
+  justify-content: center;
+}
+
+.line__list-title {
+  font-weight: bold;
+}
