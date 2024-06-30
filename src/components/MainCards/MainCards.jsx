@@ -11,19 +11,29 @@ function MainCards() {
 
   const [cardIndex, setCardIndex] = useState(0);
   const [translateClicked, setTranslateCliked] = useState(false);
+  const [disabledPrev, setDisabledPrev] = useState(false);
+  const [disabledNext, setDisabledNext] = useState(false);
 
   const handlePrevBtn = () => {
     if (cardIndex > 0) {
       setCardIndex(cardIndex - 1);
       setTranslateCliked(false);
-    } else setCardIndex(cardIndex);
+      setDisabledNext(false);
+    } else {
+      setCardIndex(cardIndex);
+      setDisabledPrev(true);
+    }
   };
 
   const handleNextBtn = () => {
     if (cardIndex < numOfCards - 1) {
       setCardIndex(cardIndex + 1);
       setTranslateCliked(false);
-    } else setCardIndex(cardIndex);
+      setDisabledPrev(false);
+    } else {
+      setCardIndex(cardIndex);
+      setDisabledNext(true);
+    }
   };
 
   const handleShowTranslate = () => {
@@ -44,6 +54,7 @@ function MainCards() {
             imgSrc={prevArrow}
             imgAlt="prev"
             handleClick={handlePrevBtn}
+            disabled={disabledPrev}
           />
           <Card
             english={wordsJSON[cardIndex].english}
@@ -58,6 +69,7 @@ function MainCards() {
             imgSrc={nextArrow}
             imgAlt="next"
             handleClick={handleNextBtn}
+            disabled={disabledNext}
           />
         </div>
       </div>
