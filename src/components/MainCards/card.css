@@ -17,15 +17,11 @@
   box-shadow: 4px 4px 8px rgba(17, 17, 17, 0.5);
 }
 
-.hidden {
-  display: none;
-}
-
 .card__word-tags {
   align-self: flex-start;
   color: var(--mainDark);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   font-style: italic;
   margin: 1.5rem;
 }
