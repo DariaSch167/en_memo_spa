@@ -39,6 +39,6 @@
   transition: all 0.3s ease-in-out;
 }
 #home-btn__go:active {
-  background-color: var(--accentBlueDark);
-  border: 2px solid var(--accentBlueDark);
+  background-color: var(--accentBlueSecond);
+  border: 2px solid var(--accentBlueSecond);
 }

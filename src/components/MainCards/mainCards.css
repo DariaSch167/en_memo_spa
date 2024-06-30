@@ -1,0 +1,38 @@
+.main__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--mainLight);
+  height: 100%;
+}
+.card__num h2 {
+  margin: 2rem;
+}
+.card__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+#card-translate__btn {
+  background-color: var(--accentOrange);
+  border: 2px solid var(--accentOrange);
+  border-radius: 0.5rem;
+  outline: none;
+  color: var(--mainWhite);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1rem 5rem;
+  margin: 2rem 0;
+}
+
+#card-translate__btn:hover {
+  background-color: var(--accentOrangeSecond);
+  border-color: var(--accentOrangeSecond);
+}
+#card-translate__btn:active {
+  background-color: var(--mainDark);
+  border-color: var(--mainDark);
+}

@@ -1,0 +1,48 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40vw;
+  height: 50vh;
+}
+
+.card-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mainWhite);
+  border-radius: 0.25rem;
+  box-shadow: 4px 4px 8px rgba(17, 17, 17, 0.5);
+}
+
+.hidden {
+  display: none;
+}
+
+.card__word-tags {
+  align-self: flex-start;
+  color: var(--mainDark);
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  margin: 1.5rem;
+}
+
+.card__word-en {
+  font-size: 6rem;
+  padding: 0;
+  margin: 0;
+}
+.card__word-transcription {
+  font-size: 3rem;
+  padding: 0;
+  margin: 0;
+}
+.card__word-ru {
+  font-size: 3rem;
+  padding: 0;
+  margin: 2rem 0;
+  color: #009fdf;
+}

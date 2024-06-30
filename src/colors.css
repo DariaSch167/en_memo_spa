@@ -4,15 +4,11 @@ main,
 footer {
   --mainDark: #111111;
   --mainLight: #dac2aa;
+  --mainLigthSecond: #bd9c7b;
   --mainWhite: #ffffff;
 
   --accentOrange: #ff6b18;
-  --accentOrangeDark: #e35a0d;
+  --accentOrangeSecond: #f14109;
   --accentBlue: #009fdf;
-  --accentBlueDark: #035a7c;
-
-  --cardManageBtn: #628aab;
-  --cardManageBtnDisabled: #afc6d9;
-  --cardManageBtnHover: #1a75c1;
-  --cardManageBtnActive: #111111;
+  --accentBlueSecond: #035a7c;
 }

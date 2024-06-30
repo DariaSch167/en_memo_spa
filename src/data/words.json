@@ -1,0 +1,98 @@
+[
+  {
+    "id": "201",
+    "english": "basket",
+    "transcription": "[ˈbɑːskɪt]",
+    "russian": "корзина",
+    "tags": "предмет",
+    "tags_json": "[\"\"]"
+  },
+  {
+    "id": "101",
+    "english": "horse",
+    "transcription": "[ hɔːs ]",
+    "russian": "лошадь",
+    "tags": "животное",
+    "tags_json": "[]"
+  },
+  {
+    "id": "102",
+    "english": "cat",
+    "transcription": "[cat]",
+    "russian": "кошка",
+    "tags": "животное",
+    "tags_json": "[\"\"]"
+  },
+  {
+    "id": "202",
+    "english": "picture",
+    "transcription": "[ ˈpɪk.tʃə r]",
+    "russian": "картина",
+    "tags": "предмет",
+    "tags_json": "[]"
+  },
+  {
+    "id": "301",
+    "english": "tree",
+    "transcription": "[ triː ]",
+    "russian": "дерево",
+    "tags": "природа",
+    "tags_json": "[]"
+  },
+  {
+    "id": "203",
+    "english": "book",
+    "transcription": "[ bʊk ]",
+    "russian": "книга",
+    "tags": "предмет",
+    "tags_json": "[]"
+  },
+  {
+    "id": "204",
+    "english": "key",
+    "transcription": "[ kiː ]",
+    "russian": " ключ",
+    "tags": "предмет",
+    "tags_json": "[]"
+  },
+  {
+    "id": "103",
+    "english": "dog",
+    "transcription": "[ dɒɡ ]",
+    "russian": "собака",
+    "tags": "животное",
+    "tags_json": "[]"
+  },
+  {
+    "id": "401",
+    "english": "read",
+    "transcription": "[ riːd ]",
+    "russian": "читать",
+    "tags": "действие",
+    "tags_json": "[]"
+  },
+  {
+    "id": "302",
+    "english": "river",
+    "transcription": "[ ˈrɪv.ə r]",
+    "russian": "река",
+    "tags": "природа",
+    "tags_json": "[]"
+  },
+  {
+    "id": "303",
+    "english": "fire",
+    "transcription": "[faɪər]",
+    "russian": "огонь",
+    "tags": "природа",
+    "tags_json": "[]"
+  },
+  {
+    "id": "402",
+    "english": "build",
+    "transcription": "[ bɪld ]",
+    "russian": "строить",
+    "tags": "действие",
+    "tags_json": "[]"
+  }
+]
