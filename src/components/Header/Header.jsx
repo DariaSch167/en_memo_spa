@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import MenuElement from "./HeaderMenuElem.jsx";
 import headerLogo from "../../images/header_logo.svg";
 import headerHome from "../../images/header_menu-home.svg";
@@ -16,11 +17,19 @@ function Header() {
             <img src={headerLogo} alt="logo" />
             <h1>EN-RU memocards</h1>
           </div>
-          <div className="header__menu">
-            <MenuElement img={headerHome} name="Home" />
-            <MenuElement img={headerList} name="List" />
-            <MenuElement img={headerCard} name="Card" />
-          </div>
+          <nav>
+            <div className="header__menu">
+              <Link to="/">
+                <MenuElement img={headerHome} name="Home" />
+              </Link>
+              <Link to="/list">
+                <MenuElement img={headerList} name="List" />
+              </Link>
+              <Link to="/cards">
+                <MenuElement img={headerCard} name="Card" />
+              </Link>
+            </div>
+          </nav>
         </div>
       </header>
     </React.Fragment>

@@ -1,10 +1,10 @@
 @import "../../colors.css";
 
-/* header {
+header {
   position: fixed;
   width: 100%;
   top: 0;
-} */
+}
 
 .header {
   display: flex;

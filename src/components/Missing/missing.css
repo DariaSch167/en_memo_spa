@@ -1,0 +1,40 @@
+main {
+  flex-grow: 1;
+  height: 100vh;
+  background-color: var(--mainDark);
+}
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.main__404-banner {
+  display: flex;
+  justify-content: center;
+}
+.main__404-banner img {
+  width: 70%;
+}
+
+.main__404-text {
+  color: var(--mainLight);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main__404-text h2 {
+  font-size: 10rem;
+  margin: 0;
+  padding: 0;
+}
+.main__404-text p {
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}

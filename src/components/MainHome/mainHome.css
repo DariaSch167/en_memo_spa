@@ -1,5 +1,14 @@
 @import "../../colors.css";
 
+main {
+  flex-grow: 1;
+  height: 100vh;
+}
+.main {
+  width: 100%;
+  height: 100%;
+}
+
 .main__home {
   position: relative;
   width: 100%;

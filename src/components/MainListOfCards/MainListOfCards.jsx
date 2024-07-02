@@ -13,62 +13,66 @@ function MainListOfCards(props) {
 
   return (
     <React.Fragment>
-      <div className="main__list">
-        <h2>List Of Cards</h2>
-        <div className="line__list-title">
-          <CardLine
-            mode="read"
-            index=""
-            english="English"
-            transcription="Transcription"
-            russian="Russian"
-            tags="Tags"
-          />
-          <div className="list-title__btn"></div>
-        </div>
-        <div className="line__list-add">
-          <CardLine
-            mode="edit"
-            index="0"
-            english=""
-            transcription=""
-            russian=""
-            tags=""
-          />
-          <div className="list-add__btn">
-            <ManageButton imgSrc={btnUndo} imgAlt="undo" />
-            <ManageButton imgSrc={btnSave} imgAlt="save" />
-          </div>
-        </div>
-        {wordsJSON.map((item, index) => {
-          return (
-            <div className="line">
+      <main>
+        <div className="main">
+          <div className="main__list">
+            <h2>List Of Cards</h2>
+            <div className="line__list-title">
               <CardLine
-                mode={lineMode}
-                key={index}
-                index={index + 1}
-                english={item.english}
-                transcription={item.transcription}
-                russian={item.russian}
-                tags={item.tags}
+                mode="read"
+                index=""
+                english="English"
+                transcription="Transcription"
+                russian="Russian"
+                tags="Tags"
               />
-              <div className="line__btn">
-                {lineMode === "read" ? (
-                  <React.Fragment>
-                    <ManageButton imgSrc={btnEdit} imgAlt="edit" />
-                    <ManageButton imgSrc={btnDel} imgAlt="delete" />
-                  </React.Fragment>
-                ) : (
-                  <React.Fragment>
-                    <ManageButton imgSrc={btnUndo} imgAlt="undo" />
-                    <ManageButton imgSrc={btnSave} imgAlt="save" />
-                  </React.Fragment>
-                )}
+              <div className="list-title__btn"></div>
+            </div>
+            <div className="line__list-add">
+              <CardLine
+                mode="edit"
+                index="0"
+                english=""
+                transcription=""
+                russian=""
+                tags=""
+              />
+              <div className="list-add__btn">
+                <ManageButton imgSrc={btnUndo} imgAlt="undo" />
+                <ManageButton imgSrc={btnSave} imgAlt="save" />
               </div>
             </div>
-          );
-        })}
-      </div>
+            {wordsJSON.map((item, index) => {
+              return (
+                <div className="line">
+                  <CardLine
+                    mode={lineMode}
+                    key={index}
+                    index={index + 1}
+                    english={item.english}
+                    transcription={item.transcription}
+                    russian={item.russian}
+                    tags={item.tags}
+                  />
+                  <div className="line__btn">
+                    {lineMode === "read" ? (
+                      <React.Fragment>
+                        <ManageButton imgSrc={btnEdit} imgAlt="edit" />
+                        <ManageButton imgSrc={btnDel} imgAlt="delete" />
+                      </React.Fragment>
+                    ) : (
+                      <React.Fragment>
+                        <ManageButton imgSrc={btnUndo} imgAlt="undo" />
+                        <ManageButton imgSrc={btnSave} imgAlt="save" />
+                      </React.Fragment>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </main>
     </React.Fragment>
   );
 }
