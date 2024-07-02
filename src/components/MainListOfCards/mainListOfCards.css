@@ -9,6 +9,7 @@ main {
 .main__list {
   background-color: var(--mainLight);
 }
+
 .main__list h2 {
   margin: 0;
   padding: 2rem;
