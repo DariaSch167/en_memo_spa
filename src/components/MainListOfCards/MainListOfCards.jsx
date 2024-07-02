@@ -9,7 +9,16 @@ import btnUndo from "../../images/card-line__undo.svg";
 import "./mainListOfCards.css";
 
 function MainListOfCards(props) {
-  const [lineMode, setLineMode] = useState("read");
+  const [editMode, setEditMode] = useState(false);
+  // const [cardIndex, setCardIndex] = useState(null);
+
+  // const handleClick = (index) => {
+  //   setCardIndex(index);
+  // };
+
+  const handleChangeMode = (index) => {
+    setEditMode(!editMode);
+  };
 
   return (
     <React.Fragment>
@@ -19,7 +28,7 @@ function MainListOfCards(props) {
             <h2>List Of Cards</h2>
             <div className="line__list-title">
               <CardLine
-                mode="read"
+                editMode={false}
                 index=""
                 english="English"
                 transcription="Transcription"
@@ -30,7 +39,7 @@ function MainListOfCards(props) {
             </div>
             <div className="line__list-add">
               <CardLine
-                mode="edit"
+                editMode={true}
                 index="0"
                 english=""
                 transcription=""
@@ -46,7 +55,7 @@ function MainListOfCards(props) {
               return (
                 <div className="line">
                   <CardLine
-                    mode={lineMode}
+                    editMode={editMode}
                     key={index}
                     index={index + 1}
                     english={item.english}
@@ -55,14 +64,22 @@ function MainListOfCards(props) {
                     tags={item.tags}
                   />
                   <div className="line__btn">
-                    {lineMode === "read" ? (
+                    {editMode === false ? (
                       <React.Fragment>
-                        <ManageButton imgSrc={btnEdit} imgAlt="edit" />
+                        <ManageButton
+                          imgSrc={btnEdit}
+                          imgAlt="edit"
+                          onClick={handleChangeMode}
+                        />
                         <ManageButton imgSrc={btnDel} imgAlt="delete" />
                       </React.Fragment>
                     ) : (
                       <React.Fragment>
-                        <ManageButton imgSrc={btnUndo} imgAlt="undo" />
+                        <ManageButton
+                          imgSrc={btnUndo}
+                          imgAlt="undo"
+                          onClick={handleChangeMode}
+                        />
                         <ManageButton imgSrc={btnSave} imgAlt="save" />
                       </React.Fragment>
                     )}

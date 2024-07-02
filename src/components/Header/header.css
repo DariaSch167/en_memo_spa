@@ -31,3 +31,13 @@ header {
   align-items: center;
   gap: 2rem;
 }
+
+.header__title-link {
+  text-decoration: none;
+  color: var(--mainWhite);
+}
+
+.header__title-link:hover {
+  background-color: var(--mainDark);
+  opacity: 0.7;
+}

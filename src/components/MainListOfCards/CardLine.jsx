@@ -6,7 +6,7 @@ function CardLine(props) {
     <React.Fragment>
       <div className="card__line">
         <p className="card__line__word-index">{props.index}</p>
-        {props.mode === "read" ? (
+        {props.editMode === false ? (
           <React.Fragment>
             <p className="card__line__word-en">{props.english}</p>
             <p className="card__line__word-transcription">

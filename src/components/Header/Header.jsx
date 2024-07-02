@@ -13,19 +13,21 @@ function Header() {
     <React.Fragment>
       <header>
         <div className="header">
-          <div className="header__title">
-            <img src={headerLogo} alt="logo" />
-            <h1>EN-RU memocards</h1>
-          </div>
+          <Link to="/" className="header__title-link">
+            <div className="header__title">
+              <img src={headerLogo} alt="logo" />
+              <h1>EN-RU memocards</h1>
+            </div>
+          </Link>
           <nav>
             <div className="header__menu">
-              <Link to="/">
+              <Link to="/" className="header__title-link">
                 <MenuElement img={headerHome} name="Home" />
               </Link>
-              <Link to="/list">
+              <Link to="/list" className="header__title-link">
                 <MenuElement img={headerList} name="List" />
               </Link>
-              <Link to="/cards">
+              <Link to="/cards" className="header__title-link">
                 <MenuElement img={headerCard} name="Card" />
               </Link>
             </div>
