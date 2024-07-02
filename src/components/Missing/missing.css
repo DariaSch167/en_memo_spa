@@ -1,9 +1,6 @@
-main {
-  flex-grow: 1;
+.main__404 {
   height: 100vh;
   background-color: var(--mainDark);
-}
-.main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;

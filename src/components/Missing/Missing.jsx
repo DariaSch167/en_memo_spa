@@ -6,7 +6,7 @@ function Missing() {
   return (
     <React.Fragment>
       <main>
-        <div className="main">
+        <div className="main__404">
           <div className="main__404-text">
             <h2>404</h2>
             <p>Page not found</p>
