@@ -21,6 +21,7 @@ function MainCards() {
       setDisabledNext(false);
     } else {
       setCardIndex(cardIndex);
+      console.log(cardIndex);
       setDisabledPrev(true);
     }
   };
@@ -32,6 +33,7 @@ function MainCards() {
       setDisabledPrev(false);
     } else {
       setCardIndex(cardIndex);
+      console.log(cardIndex);
       setDisabledNext(true);
     }
   };

@@ -16,15 +16,3 @@ main {
   padding: 2rem;
   text-align: center;
 }
-
-.line__list-title,
-.line__list-add,
-.line {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.line__list-title {
-  font-weight: bold;
-}
