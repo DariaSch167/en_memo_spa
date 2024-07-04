@@ -1,4 +1,7 @@
-.card__line {
+.title__names,
+.line__add-card__form,
+.list__line-read,
+.list__line-edit {
   display: grid;
   grid-template-columns: 0.3fr repeat(4, 1fr);
   grid-gap: 1rem;
@@ -8,9 +11,23 @@
   font-size: 1.25rem;
 }
 
-.card__line input {
+.line__add-card__form input,
+.list__line input {
   outline: none;
   border-color: white;
   border-radius: 0.25rem;
   font-size: 1.25rem;
+}
+
+.list__title,
+.list__line__add-card,
+.list__line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list__title {
+  font-size: 1.25rem;
+  font-weight: bold;
 }

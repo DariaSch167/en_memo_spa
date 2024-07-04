@@ -1,45 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
+import LineElemRead from "./LineElemRead.jsx";
+import LineElemEdit from "./LineElemEdit.jsx";
+import ManageButton from "./LineManageBtn.jsx";
 import "./cardLine.css";
+import btnEdit from "../../images/card-line__edit.svg";
+import btnDel from "../../images/card-line__delete.svg";
+import btnSave from "../../images/card-line__save.svg";
+import btnUndo from "../../images/card-line__undo.svg";
 
 function CardLine(props) {
+  const [editMode, setEditMode] = useState(false);
+
+  const handleChangeMode = () => {
+    setEditMode(!editMode);
+  };
+
   return (
     <React.Fragment>
-      <div className="card__line">
-        <p className="card__line__word-index">{props.index}</p>
-        {props.editMode === false ? (
-          <React.Fragment>
-            <p className="card__line__word-en">{props.english}</p>
-            <p className="card__line__word-transcription">
-              {props.transcription}
-            </p>
-            <p className="card__line__word-ru">{props.russian}</p>
-            <p className="card__line__word-tags">{props.tags}</p>
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <input
-              className="card__line__word-en"
-              type="text"
-              value={props.english}
+      {editMode === false ? (
+        <React.Fragment>
+          <LineElemRead {...props} className="list__line-read" />
+          <div className="line__read-btn">
+            <ManageButton
+              imgSrc={btnEdit}
+              imgAlt="edit"
+              onClick={handleChangeMode}
             />
-            <input
-              className="card__line__word-transcription"
-              type="text"
-              value={props.transcription}
+            <ManageButton
+              imgSrc={btnDel}
+              imgAlt="delete"
+              // onClick={() => props.lineDelete()}
             />
-            <input
-              className="card__line__word-ru"
-              type="text"
-              value={props.russian}
+          </div>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <LineElemEdit {...props} className="list__line-edit" />
+          <div className="line__edit-btn">
+            <ManageButton
+              imgSrc={btnUndo}
+              imgAlt="undo"
+              onClick={handleChangeMode}
             />
-            <input
-              className="card__line__word-tags"
-              type="text"
-              value={props.tags}
+            <ManageButton
+              imgSrc={btnSave}
+              imgAlt="save"
+              // onClick={() => props.lineSave()}
             />
-          </React.Fragment>
-        )}
-      </div>
+          </div>
+        </React.Fragment>
+      )}
     </React.Fragment>
   );
 }
