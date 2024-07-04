@@ -10,36 +10,48 @@ function MainCards() {
   const numOfCards = wordsJSON.length;
 
   const [cardIndex, setCardIndex] = useState(0);
+  const [showedTranslation, setShowedTranslation] = useState(0);
   const [translateClicked, setTranslateCliked] = useState(false);
-  const [disabledPrev, setDisabledPrev] = useState(false);
+  const [disabledPrev, setDisabledPrev] = useState(true);
   const [disabledNext, setDisabledNext] = useState(false);
 
+  let alertEnding =
+    (showedTranslation > 11) & (showedTranslation < 15)
+      ? " раз"
+      : showedTranslation % 10 === 2
+      ? " раза"
+      : showedTranslation % 10 === 3
+      ? " раза"
+      : showedTranslation % 10 === 4
+      ? " раза"
+      : " раз";
+
   const handlePrevBtn = () => {
-    if (cardIndex > 0) {
+    if (cardIndex > 1) {
       setCardIndex(cardIndex - 1);
       setTranslateCliked(false);
       setDisabledNext(false);
     } else {
-      setCardIndex(cardIndex);
-      console.log(cardIndex);
+      setCardIndex(cardIndex - 1);
       setDisabledPrev(true);
     }
   };
 
   const handleNextBtn = () => {
-    if (cardIndex < numOfCards - 1) {
+    if (cardIndex < numOfCards - 2) {
       setCardIndex(cardIndex + 1);
       setTranslateCliked(false);
       setDisabledPrev(false);
     } else {
-      setCardIndex(cardIndex);
-      console.log(cardIndex);
+      setCardIndex(cardIndex + 1);
       setDisabledNext(true);
+      alert("Кликнули на кнопку перевода: " + showedTranslation + alertEnding);
     }
   };
 
   const handleShowTranslate = () => {
     setTranslateCliked(!translateClicked);
+    setShowedTranslation(showedTranslation + 1);
   };
 
   return (
