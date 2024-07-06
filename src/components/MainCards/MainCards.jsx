@@ -4,6 +4,7 @@ import ArrowButton from "./CardArrBtn.jsx";
 import "./mainCards.css";
 import prevArrow from "../../images/card_prev-arrow.svg";
 import nextArrow from "../../images/card_next-arrow.svg";
+import resultBtn from "../../images/card_result-alert.svg";
 import wordsJSON from "../../data/words.json";
 
 function MainCards() {
@@ -14,17 +15,6 @@ function MainCards() {
   const [translateClicked, setTranslateCliked] = useState(false);
   const [disabledPrev, setDisabledPrev] = useState(true);
   const [disabledNext, setDisabledNext] = useState(false);
-
-  let alertEnding =
-    (showedTranslation > 11) & (showedTranslation < 15)
-      ? " раз"
-      : showedTranslation % 10 === 2
-      ? " раза"
-      : showedTranslation % 10 === 3
-      ? " раза"
-      : showedTranslation % 10 === 4
-      ? " раза"
-      : " раз";
 
   const handlePrevBtn = () => {
     if (cardIndex > 1) {
@@ -45,13 +35,31 @@ function MainCards() {
     } else {
       setCardIndex(cardIndex + 1);
       setDisabledNext(true);
-      alert("Кликнули на кнопку перевода: " + showedTranslation + alertEnding);
     }
   };
 
   const handleShowTranslate = () => {
     setTranslateCliked(!translateClicked);
     setShowedTranslation(showedTranslation + 1);
+  };
+
+  let alertEnding =
+    (showedTranslation > 11) & (showedTranslation < 15)
+      ? " раз"
+      : showedTranslation % 10 === 2
+      ? " раза"
+      : showedTranslation % 10 === 3
+      ? " раза"
+      : showedTranslation % 10 === 4
+      ? " раза"
+      : " раз";
+
+  const handleResultClick = () => {
+    alert("Кликнули на кнопку перевода: " + showedTranslation + alertEnding);
+    let resultConfirm = window.confirm("Начать сначала?");
+    if (resultConfirm) {
+      window.location.reload();
+    }
   };
 
   return (
@@ -65,13 +73,22 @@ function MainCards() {
               </h2>
             </div>
             <div className="card__wrapper">
-              <ArrowButton
-                id="card-prev"
-                imgSrc={prevArrow}
-                imgAlt="prev"
-                handleClick={handlePrevBtn}
-                disabled={disabledPrev}
-              />
+              {cardIndex === numOfCards - 1 ? (
+                <ArrowButton
+                  id="card-result"
+                  imgSrc={resultBtn}
+                  imgAlt="result"
+                  handleClick={handleResultClick}
+                />
+              ) : (
+                <ArrowButton
+                  id="card-prev"
+                  imgSrc={prevArrow}
+                  imgAlt="prev"
+                  handleClick={handlePrevBtn}
+                  disabled={disabledPrev}
+                />
+              )}
               <Card
                 english={wordsJSON[cardIndex].english}
                 transcription={wordsJSON[cardIndex].transcription}

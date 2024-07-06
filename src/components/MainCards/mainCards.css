@@ -1,7 +1,3 @@
-main {
-  flex-grow: 1;
-  height: 100vh;
-}
 .main {
   width: 100%;
   height: 100%;
@@ -45,6 +41,26 @@ main {
   border-color: var(--accentOrangeSecond);
 }
 #card-translate__btn:active {
+  background-color: var(--mainDark);
+  border-color: var(--mainDark);
+}
+
+#card-result {
+  background-color: var(--accentBlue);
+  border-color: var(--accentBlue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#card-result:hover {
+  background-color: var(--accentBlueSecond);
+  border-color: var(--accentBlueSecond);
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+#card-result:active {
   background-color: var(--mainDark);
   border-color: var(--mainDark);
 }
