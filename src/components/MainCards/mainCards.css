@@ -45,7 +45,7 @@
   border-color: var(--mainDark);
 }
 #card-translate__btn:focus {
-  border: 2px solid var(--mainDark);
+  border: 2px solid var(--accentOrangeSecond);
 }
 
 #card-result {
