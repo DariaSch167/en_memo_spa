@@ -14,7 +14,8 @@ function Card(props) {
           ) : (
             <button
               id="card-translate__btn"
-              onClick={props.handleShowTranslate}>
+              onClick={props.handleShowTranslate}
+              ref={props.btnRef}>
               Show translation
             </button>
           )}

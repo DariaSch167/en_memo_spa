@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Card from "./Card.jsx";
 import ArrowButton from "./CardArrBtn.jsx";
 import "./mainCards.css";
@@ -62,6 +62,12 @@ function MainCards() {
     }
   };
 
+  const ref = useRef(null);
+
+  useEffect(() => {
+    ref.current.focus();
+  }, [cardIndex]);
+
   return (
     <React.Fragment>
       <main>
@@ -96,6 +102,7 @@ function MainCards() {
                 tags={wordsJSON[cardIndex].tags}
                 translateClicked={translateClicked}
                 handleShowTranslate={handleShowTranslate}
+                btnRef={ref}
               />
               <ArrowButton
                 id="card-next"
