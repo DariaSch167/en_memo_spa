@@ -10,16 +10,12 @@ function LineElemEdit(props) {
   });
 
   const handleChange = (e) => {
-    setState(e.target.value);
+    const value = e.target.value;
+    setState({
+      ...state,
+      [e.target.name]: value,
+    });
   };
-
-  // const handleChange = (e) => {
-  //   const value = e.target.value;
-  //   setState({
-  //     ...state,
-  //     [e.target.name]: value,
-  //   });
-  // };
 
   return (
     <React.Fragment>
@@ -28,24 +24,28 @@ function LineElemEdit(props) {
         <input
           className="list__line__word-en"
           type="text"
+          name="english"
           value={state.english}
           onChange={handleChange}
         />
         <input
           className="list__line__word-transcription"
           type="text"
+          name="transcription"
           value={state.transcription}
           onChange={handleChange}
         />
         <input
           className="list__line__word-ru"
           type="text"
+          name="russian"
           value={state.russian}
           onChange={handleChange}
         />
         <input
           className="list__line__word-tags"
           type="text"
+          name="tags"
           value={state.tags}
           onChange={handleChange}
         />

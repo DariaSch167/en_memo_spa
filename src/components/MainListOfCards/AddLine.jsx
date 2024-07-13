@@ -5,6 +5,7 @@ import ManageButton from "./LineManageBtn.jsx";
 import btnAdd from "../../images/card-line__save.svg";
 import btnClear from "../../images/card-line__undo.svg";
 import "./mainListOfCards.css";
+import "./cardLine.css";
 
 function AddLine() {
   return (
