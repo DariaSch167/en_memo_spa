@@ -10,9 +10,15 @@ import btnUndo from "../../images/card-line__undo.svg";
 
 function CardLine(props) {
   const [editMode, setEditMode] = useState(false);
+  const [saveBtnDisable, setSaveBtnDisable] = useState(false);
 
   const handleChangeMode = () => {
     setEditMode(!editMode);
+  };
+
+  const handleEditMode = () => {
+    setEditMode(true);
+    setSaveBtnDisable(true);
   };
 
   return (
@@ -24,7 +30,7 @@ function CardLine(props) {
             <ManageButton
               imgSrc={btnEdit}
               imgAlt="edit"
-              onClick={handleChangeMode}
+              onClick={handleEditMode}
             />
             <ManageButton
               imgSrc={btnDel}
@@ -45,6 +51,7 @@ function CardLine(props) {
             <ManageButton
               imgSrc={btnSave}
               imgAlt="save"
+              disabled={saveBtnDisable}
               // onClick={() => props.lineSave()}
             />
           </div>

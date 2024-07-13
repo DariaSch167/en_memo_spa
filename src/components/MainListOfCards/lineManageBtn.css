@@ -14,3 +14,8 @@
   background-color: var(--accentOrangeSecond);
   border-radius: 50%;
 }
+
+.line__manage-btn:disabled {
+  background-color: transparent;
+  opacity: 0.7;
+}
