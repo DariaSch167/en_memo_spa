@@ -21,6 +21,13 @@ function CardLine(props) {
     setSaveBtnDisable(true);
   };
 
+  // Тестоввый обработчик тестового инпута:
+  const [testValue, setTestValue] = useState("hi");
+  const handleChangeTest = (value) => {
+    setTestValue(value);
+    console.log(testValue);
+  };
+
   return (
     <React.Fragment>
       {editMode === false ? (
@@ -41,7 +48,13 @@ function CardLine(props) {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <LineElemEdit {...props} className="list__line-edit" />
+          <LineElemEdit
+            {...props}
+            className="list__line-edit"
+            // Тестовый инпут:
+            test={testValue}
+            handleChangeTest={handleChangeTest}
+          />
           <div className="line__edit-btn">
             <ManageButton
               imgSrc={btnUndo}

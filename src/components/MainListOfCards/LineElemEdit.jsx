@@ -17,10 +17,22 @@ function LineElemEdit(props) {
     });
   };
 
+  // Тестовая колл-бек функция
+  const handleChangeTest = (event) => {
+    props.handleChangeTest(event.target.value);
+  };
+
   return (
     <React.Fragment>
       <div className={props.className}>
         <p className="list__line__word-index">{props.index}</p>
+        {/* Тестовый инпут: */}
+        <input
+          type="text"
+          name="test"
+          value={props.test}
+          onChange={handleChangeTest}
+        />
         <input
           className="list__line__word-en"
           type="text"
