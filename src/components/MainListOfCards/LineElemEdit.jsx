@@ -4,7 +4,7 @@ import "./cardLine.css";
 function LineElemEdit(props) {
   return (
     <React.Fragment>
-      <div className={props.className}>
+      <div name="form" className={props.className}>
         <p className="list__line__word-index">{props.index}</p>
         <input
           className="list__line__word-en"

@@ -21,6 +21,10 @@
   width: 100%;
 }
 
+.empty-input {
+  border-color: red;
+}
+
 .list__title,
 .list__line__add-card,
 .list__line {
