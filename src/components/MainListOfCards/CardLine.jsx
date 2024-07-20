@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import CardLineInner from "./CardLineInner.jsx";
 import "./cardLine.css";
 
@@ -17,16 +17,25 @@ function CardLine(props) {
   const [state, setState] = useState(initialState);
   const prevStateRef = useRef(initialState);
 
-  const handleChangeMode = () => {
+  useEffect(() => {
+    if (
+      state.english === "" ||
+      state.transcription === "" ||
+      state.russian === "" ||
+      state.tags === ""
+    ) {
+      setSaveBtnDisable(true);
+    } else {
+      setSaveBtnDisable(false);
+    }
+  }, [state]);
+
+  const handleEditBtn = () => {
     setEditMode(!editMode);
   };
 
-  const handleEditBtn = () => {
-    handleChangeMode();
-  };
-
   const handleUndoBtn = () => {
-    handleChangeMode();
+    setEditMode(!editMode);
     setState(prevStateRef.current);
   };
 
@@ -37,40 +46,34 @@ function CardLine(props) {
     });
     if (e.target.value.trim() === "") {
       e.target.style.borderColor = "red";
-      setSaveBtnDisable(true);
     } else {
       e.target.style.borderColor = "white";
-      setSaveBtnDisable(false);
     }
   };
 
   const handleSave = () => {
-    handleChangeMode();
-    console.log(state);
-
     const regexEnglish = /^[a-zA-Z ]+$/g;
     const regexTranscription = /\[(.+)\]/g;
     const regexRussian = /^[а-яёА-ЯЁ ]+$/g;
 
-    // Проверочка проверки полей:
-    console.log(
-      state.english.match(regexEnglish) +
-        state.transcription.match(regexTranscription) +
-        state.russian.match(regexRussian)
-    );
-
     let inputErrors = "";
+
     inputErrors =
       state.english.match(regexEnglish) === null
-        ? " Latin letters for English."
-        : state.transcription.match(regexTranscription) === null
+        ? inputErrors + " Latin letters for English."
+        : inputErrors;
+    inputErrors =
+      state.transcription.match(regexTranscription) === null
         ? inputErrors + " [...] format for Transcription."
-        : state.russian.match(regexRussian) === null
+        : inputErrors;
+    inputErrors =
+      state.russian.match(regexRussian) === null
         ? inputErrors + " Cyrillic letters for Russian."
-        : "";
+        : inputErrors;
 
     if (inputErrors === "") {
-      handleChangeMode();
+      setEditMode(!editMode);
+      console.log(state);
     } else {
       alert(inputErrors);
       setEditMode(true);
