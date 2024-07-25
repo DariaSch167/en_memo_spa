@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import CardLine from "./CardLine.jsx";
 import TitleLine from "./TitleLine.jsx";
 import AddLine from "./AddLine.jsx";
-import wordsJSON from "../../data/words.json";
+import { APIWords } from "../WordsContext.js";
 import "./mainListOfCards.css";
 
 function MainListOfCards() {
+  const { words } = useContext(APIWords);
+
   return (
     <React.Fragment>
       <main>
@@ -19,7 +21,7 @@ function MainListOfCards() {
               <AddLine />
             </div>
             <div className="list__line-wrapper">
-              {wordsJSON.map((item, index) => {
+              {words.map((item, index) => {
                 return (
                   <div className="list__line" key={item.id}>
                     <CardLine
