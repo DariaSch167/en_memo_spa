@@ -1,7 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import LineElemEdit from "./LineElemEdit.jsx";
 import ManageButton from "./LineManageBtn.jsx";
-// import wordsJSON from "../../data/words.json";
 import btnAdd from "../../images/card-line__save.svg";
 import btnClear from "../../images/card-line__undo.svg";
 import "./mainListOfCards.css";
@@ -18,19 +17,73 @@ function AddLine() {
 
   const [saveBtnDisable, setSaveBtnDisable] = useState(true);
   const [state, setState] = useState(initialState);
-  // const prevStateRef = useRef(initialState);
+  const prevStateRef = useRef(initialState);
+
+  useEffect(() => {
+    if (
+      state.english === "" ||
+      state.transcription === "" ||
+      state.russian === ""
+    ) {
+      setSaveBtnDisable(true);
+    } else {
+      setSaveBtnDisable(false);
+    }
+  }, [state]);
+
+  const handleClearBtn = () => {
+    setState(prevStateRef.current);
+  };
 
   const handleChange = (e) => {
     setState({
       ...state,
       [e.target.name]: e.target.value,
     });
-    if (e.target.value.trim() === "") {
-      e.target.style.borderColor = "red";
-      setSaveBtnDisable(true);
+  };
+
+  const [englishBorder, setEnglishBorder] = useState("white");
+  const [transcriptionBorder, setTranscriptionBorder] = useState("white");
+  const [russianBorder, setRussianBorder] = useState("white");
+
+  const handleAddBtn = () => {
+    const regexEnglish = /^[a-zA-Z ]+$/g;
+    const regexTranscription = /^\[(.+)\]$/g;
+    const regexRussian = /^[а-яёА-ЯЁ ]+$/g;
+
+    setEnglishBorder("white");
+    setTranscriptionBorder("white");
+    setRussianBorder("white");
+
+    let inputErrors = "";
+
+    inputErrors =
+      state.english.match(regexEnglish) === null
+        ? inputErrors + " Latin letters for English."
+        : inputErrors;
+    inputErrors =
+      state.transcription.match(regexTranscription) === null
+        ? inputErrors + " [...] format for Transcription."
+        : inputErrors;
+    inputErrors =
+      state.russian.match(regexRussian) === null
+        ? inputErrors + " Cyrillic letters for Russian."
+        : inputErrors;
+
+    if (inputErrors === "") {
+      console.log(state);
+      setState(prevStateRef.current);
     } else {
-      e.target.style.borderColor = "white";
-      setSaveBtnDisable(false);
+      alert(inputErrors);
+      state.english.match(regexEnglish) === null
+        ? setEnglishBorder("red")
+        : setEnglishBorder("white");
+      state.transcription.match(regexTranscription) === null
+        ? setTranscriptionBorder("red")
+        : setTranscriptionBorder("white");
+      state.russian.match(regexRussian) === null
+        ? setRussianBorder("red")
+        : setRussianBorder("white");
     }
   };
 
@@ -40,14 +93,26 @@ function AddLine() {
         className="line__add-card__form"
         index={state.index}
         english={state.english}
+        englishBorder={englishBorder}
         transcription={state.transcription}
+        transcriptionBorder={transcriptionBorder}
         russian={state.russian}
+        russianBorder={russianBorder}
         tags={state.tags}
         handleChange={handleChange}
       />
       <div className="line__add-card__btn">
-        <ManageButton imgSrc={btnClear} imgAlt="clear" />
-        <ManageButton imgSrc={btnAdd} imgAlt="add" disabled={saveBtnDisable} />
+        <ManageButton
+          imgSrc={btnClear}
+          imgAlt="clear"
+          onClick={handleClearBtn}
+        />
+        <ManageButton
+          imgSrc={btnAdd}
+          imgAlt="add"
+          disabled={saveBtnDisable}
+          onClick={handleAddBtn}
+        />
       </div>
     </React.Fragment>
   );

@@ -11,6 +11,7 @@ function LineElemEdit(props) {
           type="text"
           name="english"
           value={props.english}
+          style={{ borderColor: props.englishBorder }}
           onChange={(e) => props.handleChange(e)}
         />
         <input
@@ -18,6 +19,7 @@ function LineElemEdit(props) {
           type="text"
           name="transcription"
           value={props.transcription}
+          style={{ borderColor: props.transcriptionBorder }}
           onChange={(e) => props.handleChange(e)}
         />
         <input
@@ -25,6 +27,7 @@ function LineElemEdit(props) {
           type="text"
           name="russian"
           value={props.russian}
+          style={{ borderColor: props.russianBorder }}
           onChange={(e) => props.handleChange(e)}
         />
         <input

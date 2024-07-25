@@ -21,8 +21,7 @@ function CardLine(props) {
     if (
       state.english === "" ||
       state.transcription === "" ||
-      state.russian === "" ||
-      state.tags === ""
+      state.russian === ""
     ) {
       setSaveBtnDisable(true);
     } else {
@@ -51,9 +50,13 @@ function CardLine(props) {
     }
   };
 
+  const [englishBorder, setEnglishBorder] = useState("white");
+  const [transcriptionBorder, setTranscriptionBorder] = useState("white");
+  const [russianBorder, setRussianBorder] = useState("white");
+
   const handleSave = () => {
     const regexEnglish = /^[a-zA-Z ]+$/g;
-    const regexTranscription = /\[(.+)\]/g;
+    const regexTranscription = /^\[(.+)\]$/g;
     const regexRussian = /^[а-яёА-ЯЁ ]+$/g;
 
     let inputErrors = "";
@@ -76,6 +79,15 @@ function CardLine(props) {
       console.log(state);
     } else {
       alert(inputErrors);
+      state.english.match(regexEnglish) === null
+        ? setEnglishBorder("red")
+        : setEnglishBorder("white");
+      state.transcription.match(regexTranscription) === null
+        ? setTranscriptionBorder("red")
+        : setTranscriptionBorder("white");
+      state.russian.match(regexRussian) === null
+        ? setRussianBorder("red")
+        : setRussianBorder("white");
       setEditMode(true);
     }
   };
@@ -85,8 +97,11 @@ function CardLine(props) {
       {...props}
       edit={editMode}
       english={state.english}
+      englishBorder={englishBorder}
       transcription={state.transcription}
+      transcriptionBorder={transcriptionBorder}
       russian={state.russian}
+      russianBorder={russianBorder}
       tags={state.tags}
       handleChange={handleChange}
       handleEditBtn={handleEditBtn}
