@@ -5,8 +5,9 @@ import AddLine from "./AddLine.jsx";
 import { APIWords } from "../WordsContext.js";
 import "./mainListOfCards.css";
 
-function MainListOfCards() {
-  const { words } = useContext(APIWords);
+function MainListOfCards(props) {
+  const words = useContext(APIWords);
+  console.log(words);
 
   return (
     <React.Fragment>
