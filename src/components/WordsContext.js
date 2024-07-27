@@ -7,6 +7,24 @@ export function APIWords(props) {
   // const [error, setError] = useState(null);
 
   useEffect(() => {
+    // setWords([
+    //   {
+    //     id: "101",
+    //     english: "horse",
+    //     transcription: "[ hɔːs ]",
+    //     russian: "лошадь",
+    //     tags: "животное",
+    //     tags_json: "[]",
+    //   },
+    //   {
+    //     id: "201",
+    //     english: "basket",
+    //     transcription: "[ˈbɑːskɪt]",
+    //     russian: "корзина",
+    //     tags: "предмет",
+    //     tags_json: '[""]',
+    //   },
+    // ]);
     fetch("http://itgirlschool.justmakeit.ru/api/words")
       .then((response) => {
         if (response.ok) {
@@ -20,7 +38,7 @@ export function APIWords(props) {
         // setLoading(false);
       })
       .catch((error) => console.log(error.message));
-  });
+  }, [words]);
 
   return (
     <APIWordsContext.Provider value={words}>
