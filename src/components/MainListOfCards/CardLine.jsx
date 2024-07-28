@@ -41,7 +41,7 @@ function CardLine(props) {
   const handleChange = (e) => {
     setState({
       ...state,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value.trim(),
     });
     if (e.target.value.trim() === "") {
       e.target.style.borderColor = "red";
