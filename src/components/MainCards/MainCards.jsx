@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import Card from "./Card.jsx";
 import ArrowButton from "./CardArrBtn.jsx";
 import "./mainCards.css";
 import prevArrow from "../../images/card_prev-arrow.svg";
 import nextArrow from "../../images/card_next-arrow.svg";
 import resultBtn from "../../images/card_result-alert.svg";
-import wordsJSON from "../../data/words.json";
+import { APIWordsContext } from "../../context/APIWordsContext.jsx";
 
 function MainCards() {
-  const numOfCards = wordsJSON.length;
+  const value = useContext(APIWordsContext);
+  const numOfCards = value.words.length;
 
   const [cardIndex, setCardIndex] = useState(0);
   const [showedTranslation, setShowedTranslation] = useState(0);
@@ -58,7 +59,9 @@ function MainCards() {
     alert("Кликнули на кнопку перевода: " + showedTranslation + alertEnding);
     let resultConfirm = window.confirm("Начать сначала?");
     if (resultConfirm) {
-      window.location.reload();
+      setCardIndex(0);
+      setDisabledPrev(true);
+      setDisabledNext(false);
     }
   };
 
@@ -96,10 +99,10 @@ function MainCards() {
                 />
               )}
               <Card
-                english={wordsJSON[cardIndex].english}
-                transcription={wordsJSON[cardIndex].transcription}
-                russian={wordsJSON[cardIndex].russian}
-                tags={wordsJSON[cardIndex].tags}
+                english={value.words[cardIndex].english}
+                transcription={value.words[cardIndex].transcription}
+                russian={value.words[cardIndex].russian}
+                tags={value.words[cardIndex].tags}
                 translateClicked={translateClicked}
                 handleShowTranslate={handleShowTranslate}
                 btnRef={ref}

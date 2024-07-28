@@ -2,12 +2,11 @@ import React, { useContext } from "react";
 import CardLine from "./CardLine.jsx";
 import TitleLine from "./TitleLine.jsx";
 import AddLine from "./AddLine.jsx";
-import { APIWords } from "../WordsContext.js";
+import { APIWordsContext } from "../../context/APIWordsContext.jsx";
 import "./mainListOfCards.css";
 
 function MainListOfCards(props) {
-  const words = useContext(APIWords);
-  console.log(words);
+  const value = useContext(APIWordsContext);
 
   return (
     <React.Fragment>
@@ -22,7 +21,7 @@ function MainListOfCards(props) {
               <AddLine />
             </div>
             <div className="list__line-wrapper">
-              {words.map((item, index) => {
+              {value.words.map((item, index) => {
                 return (
                   <div className="list__line" key={item.id}>
                     <CardLine
