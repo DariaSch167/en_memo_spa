@@ -1,12 +1,16 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import CardLineInner from "./CardLineInner.jsx";
 import "./cardLine.css";
+import { APIWordsContext } from "../../context/APIWordsContext.jsx";
 
 function CardLine(props) {
+  const value = useContext(APIWordsContext);
+
   const [editMode, setEditMode] = useState(false);
   const [saveBtnDisable, setSaveBtnDisable] = useState(false);
 
   const initialState = {
+    id: props.id,
     index: props.index,
     english: props.english,
     transcription: props.transcription,
@@ -92,10 +96,16 @@ function CardLine(props) {
     }
   };
 
+  const handleDelete = (id) => {
+    value.deleteWord(id);
+    console.log(id);
+  };
+
   return (
     <CardLineInner
       {...props}
       edit={editMode}
+      id={state.id}
       english={state.english}
       englishBorder={englishBorder}
       transcription={state.transcription}
@@ -106,6 +116,7 @@ function CardLine(props) {
       handleChange={handleChange}
       handleEditBtn={handleEditBtn}
       handleUndoBtn={handleUndoBtn}
+      handleDelete={() => handleDelete(state.id)}
       handleSave={handleSave}
       disabledSave={saveBtnDisable}
     />

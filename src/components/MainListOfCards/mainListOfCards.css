@@ -16,3 +16,7 @@ main {
   padding: 2rem;
   text-align: center;
 }
+
+.list__line-wrapper {
+  padding-bottom: 10%;
+}

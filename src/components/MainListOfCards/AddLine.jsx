@@ -23,7 +23,7 @@ function AddLine() {
   const prevStateRef = useRef(initialState);
 
   const wordsLength = value.words.length;
-  const newWordsID = value.words[wordsLength - 1].id + 1;
+  const newWordsID = Number(value.words[wordsLength - 1].id) + 1;
 
   const newWord = {
     id: newWordsID,

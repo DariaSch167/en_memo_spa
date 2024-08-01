@@ -6,7 +6,7 @@ import { APIWordsContext } from "../../context/APIWordsContext.jsx";
 import "./mainListOfCards.css";
 import Loader from "../Loader/Loader.jsx";
 
-function MainListOfCards(props) {
+function MainListOfCards() {
   const value = useContext(APIWordsContext);
 
   return (
@@ -29,7 +29,8 @@ function MainListOfCards(props) {
                   return (
                     <div className="list__line" key={item.id}>
                       <CardLine
-                        index={index + 1}
+                        id={item.id}
+                        index={index}
                         english={item.english}
                         transcription={item.transcription}
                         russian={item.russian}

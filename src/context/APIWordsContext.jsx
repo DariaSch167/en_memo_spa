@@ -7,7 +7,7 @@ export function APIWords(props) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  const getWords = () => {
     fetch("http://itgirlschool.justmakeit.ru/api/words")
       .then((response) => response.json())
       .then((response) => {
@@ -17,24 +17,43 @@ export function APIWords(props) {
       .finally(() => {
         setLoading(false);
       });
-  }, [words]);
+  };
+
+  useEffect(() => {
+    getWords();
+  }, []);
 
   const addWord = (newWord) => {
     fetch("http://itgirlschool.justmakeit.ru/api/words/add", {
       method: "POST",
       body: JSON.stringify(newWord),
-      headers: {
-        "Content-type": "application/json",
-      },
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        words.push(data);
+        setWords([...words]);
       })
       .catch((error) => setError(error));
   };
 
-  const value = { words, loading, error, addWord };
+  const deleteWord = (id) => {
+    setLoading(true);
+    fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/delete`, {
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then(() => {
+        getWords();
+        const filteredWords = [...words].filter((item) => item.id !== id);
+        setWords(filteredWords);
+      })
+      .catch((error) => setError(error))
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  const value = { words, loading, error, addWord, deleteWord };
 
   return (
     <APIWordsContext.Provider value={value}>
