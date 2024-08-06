@@ -37,3 +37,7 @@
   font-size: 1.25rem;
   font-weight: bold;
 }
+.list__line__word-en {
+  word-break: break-all;
+  max-width: 100%;
+}
