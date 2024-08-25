@@ -8,7 +8,7 @@ export function APIWords(props) {
   const [error, setError] = useState(null);
 
   const getWords = () => {
-    fetch("http://itgirlschool.justmakeit.ru/api/words")
+    fetch("https://itgirlschool.justmakeit.ru/api/words")
       .then((response) => response.json())
       .then((response) => {
         setWords(response);
@@ -24,7 +24,7 @@ export function APIWords(props) {
   }, []);
 
   const addWord = (newWord) => {
-    fetch("http://itgirlschool.justmakeit.ru/api/words/add", {
+    fetch("https://itgirlschool.justmakeit.ru/api/words/add", {
       method: "POST",
       body: JSON.stringify(newWord),
     })
@@ -38,7 +38,7 @@ export function APIWords(props) {
 
   const deleteWord = (id) => {
     setLoading(true);
-    fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/delete`, {
+    fetch(`https://itgirlschool.justmakeit.ru/api/words/${id}/delete`, {
       method: "POST",
     })
       .then((response) => response.json())
@@ -54,7 +54,7 @@ export function APIWords(props) {
 
   const updateWord = (id, updWord) => {
     setLoading(true);
-    fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/update`, {
+    fetch(`https://itgirlschool.justmakeit.ru/api/words/${id}/update`, {
       method: "POST",
       body: JSON.stringify(updWord),
     })
