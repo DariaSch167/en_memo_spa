@@ -1,12 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import LineElemEdit from "./LineElemEdit.jsx";
 import ManageButton from "./LineManageBtn.jsx";
 import btnAdd from "../../images/card-line__save.svg";
 import btnClear from "../../images/card-line__undo.svg";
 import "./mainListOfCards.css";
 import "./cardLine.css";
+import { APIWordsContext } from "../../context/APIWordsContext.jsx";
 
 function AddLine() {
+  const value = useContext(APIWordsContext);
+
   const initialState = {
     index: 0,
     english: "",
@@ -18,6 +21,17 @@ function AddLine() {
   const [saveBtnDisable, setSaveBtnDisable] = useState(true);
   const [state, setState] = useState(initialState);
   const prevStateRef = useRef(initialState);
+
+  const wordsLength = value.words.length;
+  const newWordsID = Number(value.words[wordsLength - 1].id) + 1;
+
+  const newWord = {
+    id: newWordsID,
+    english: state.english,
+    transcription: state.transcription,
+    russian: state.russian,
+    tags: state.tags,
+  };
 
   useEffect(() => {
     if (
@@ -33,6 +47,9 @@ function AddLine() {
 
   const handleClearBtn = () => {
     setState(prevStateRef.current);
+    setEnglishBorder("white");
+    setTranscriptionBorder("white");
+    setRussianBorder("white");
   };
 
   const handleChange = (e) => {
@@ -71,7 +88,7 @@ function AddLine() {
         : inputErrors;
 
     if (inputErrors === "") {
-      console.log(state);
+      value.addWord(newWord);
       setState(prevStateRef.current);
     } else {
       alert(inputErrors);

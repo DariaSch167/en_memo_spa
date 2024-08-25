@@ -1,12 +1,16 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import CardLineInner from "./CardLineInner.jsx";
 import "./cardLine.css";
+import { APIWordsContext } from "../../context/APIWordsContext.jsx";
 
 function CardLine(props) {
+  const value = useContext(APIWordsContext);
+
   const [editMode, setEditMode] = useState(false);
   const [saveBtnDisable, setSaveBtnDisable] = useState(false);
 
   const initialState = {
+    id: props.id,
     index: props.index,
     english: props.english,
     transcription: props.transcription,
@@ -36,12 +40,15 @@ function CardLine(props) {
   const handleUndoBtn = () => {
     setEditMode(!editMode);
     setState(prevStateRef.current);
+    setEnglishBorder("white");
+    setTranscriptionBorder("white");
+    setRussianBorder("white");
   };
 
   const handleChange = (e) => {
     setState({
       ...state,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value.trim(),
     });
     if (e.target.value.trim() === "") {
       e.target.style.borderColor = "red";
@@ -54,7 +61,7 @@ function CardLine(props) {
   const [transcriptionBorder, setTranscriptionBorder] = useState("white");
   const [russianBorder, setRussianBorder] = useState("white");
 
-  const handleSave = () => {
+  const handleSave = (id, state) => {
     const regexEnglish = /^[a-zA-Z ]+$/g;
     const regexTranscription = /^\[(.+)\]$/g;
     const regexRussian = /^[а-яёА-ЯЁ ]+$/g;
@@ -75,8 +82,8 @@ function CardLine(props) {
         : inputErrors;
 
     if (inputErrors === "") {
+      value.updateWord(id, state);
       setEditMode(!editMode);
-      console.log(state);
     } else {
       alert(inputErrors);
       state.english.match(regexEnglish) === null
@@ -92,10 +99,15 @@ function CardLine(props) {
     }
   };
 
+  const handleDelete = (id) => {
+    value.deleteWord(id);
+  };
+
   return (
     <CardLineInner
       {...props}
       edit={editMode}
+      id={state.id}
       english={state.english}
       englishBorder={englishBorder}
       transcription={state.transcription}
@@ -106,7 +118,8 @@ function CardLine(props) {
       handleChange={handleChange}
       handleEditBtn={handleEditBtn}
       handleUndoBtn={handleUndoBtn}
-      handleSave={handleSave}
+      handleDelete={() => handleDelete(state.id)}
+      handleSave={() => handleSave(state.id, state)}
       disabledSave={saveBtnDisable}
     />
   );

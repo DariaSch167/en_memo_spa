@@ -18,6 +18,10 @@
   padding: 1rem;
 }
 
+.card-side p {
+  word-break: break-all;
+}
+
 .card__word-tags {
   align-self: flex-start;
   color: var(--mainDark);
