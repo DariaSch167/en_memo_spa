@@ -40,6 +40,9 @@ function CardLine(props) {
   const handleUndoBtn = () => {
     setEditMode(!editMode);
     setState(prevStateRef.current);
+    setEnglishBorder("white");
+    setTranscriptionBorder("white");
+    setRussianBorder("white");
   };
 
   const handleChange = (e) => {
@@ -58,7 +61,7 @@ function CardLine(props) {
   const [transcriptionBorder, setTranscriptionBorder] = useState("white");
   const [russianBorder, setRussianBorder] = useState("white");
 
-  const handleSave = () => {
+  const handleSave = (id, state) => {
     const regexEnglish = /^[a-zA-Z ]+$/g;
     const regexTranscription = /^\[(.+)\]$/g;
     const regexRussian = /^[а-яёА-ЯЁ ]+$/g;
@@ -79,8 +82,8 @@ function CardLine(props) {
         : inputErrors;
 
     if (inputErrors === "") {
+      value.updateWord(id, state);
       setEditMode(!editMode);
-      console.log(state);
     } else {
       alert(inputErrors);
       state.english.match(regexEnglish) === null
@@ -98,7 +101,6 @@ function CardLine(props) {
 
   const handleDelete = (id) => {
     value.deleteWord(id);
-    console.log(id);
   };
 
   return (
@@ -117,7 +119,7 @@ function CardLine(props) {
       handleEditBtn={handleEditBtn}
       handleUndoBtn={handleUndoBtn}
       handleDelete={() => handleDelete(state.id)}
-      handleSave={handleSave}
+      handleSave={() => handleSave(state.id, state)}
       disabledSave={saveBtnDisable}
     />
   );

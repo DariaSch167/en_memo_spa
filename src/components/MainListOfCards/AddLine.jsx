@@ -31,7 +31,6 @@ function AddLine() {
     transcription: state.transcription,
     russian: state.russian,
     tags: state.tags,
-    tags_json: '[""]',
   };
 
   useEffect(() => {
@@ -48,6 +47,9 @@ function AddLine() {
 
   const handleClearBtn = () => {
     setState(prevStateRef.current);
+    setEnglishBorder("white");
+    setTranscriptionBorder("white");
+    setRussianBorder("white");
   };
 
   const handleChange = (e) => {
@@ -86,7 +88,6 @@ function AddLine() {
         : inputErrors;
 
     if (inputErrors === "") {
-      console.log(newWord);
       value.addWord(newWord);
       setState(prevStateRef.current);
     } else {

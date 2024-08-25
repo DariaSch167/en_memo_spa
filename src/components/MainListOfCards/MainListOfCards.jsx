@@ -30,7 +30,7 @@ function MainListOfCards() {
                     <div className="list__line" key={item.id}>
                       <CardLine
                         id={item.id}
-                        index={index}
+                        index={index + 1}
                         english={item.english}
                         transcription={item.transcription}
                         russian={item.russian}

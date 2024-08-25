@@ -43,7 +43,6 @@ export function APIWords(props) {
     })
       .then((response) => response.json())
       .then(() => {
-        getWords();
         const filteredWords = [...words].filter((item) => item.id !== id);
         setWords(filteredWords);
       })
@@ -53,7 +52,36 @@ export function APIWords(props) {
       });
   };
 
-  const value = { words, loading, error, addWord, deleteWord };
+  const updateWord = (id, updWord) => {
+    setLoading(true);
+    fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/update`, {
+      method: "POST",
+      body: JSON.stringify(updWord),
+    })
+      .then((response) => response.json())
+      .then(() => {
+        const updatedWords = words.map((item) => {
+          if (item.id === id) {
+            return {
+              ...item,
+              id: updWord.id,
+              english: updWord.english,
+              transcription: updWord.transcription,
+              russian: updWord.russian,
+              tags: updWord.tags,
+            };
+          }
+          return item;
+        });
+        setWords(updatedWords);
+      })
+      .catch((error) => setError(error))
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  const value = { words, loading, error, addWord, deleteWord, updateWord };
 
   return (
     <APIWordsContext.Provider value={value}>
