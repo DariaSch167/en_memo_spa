@@ -12,10 +12,10 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route path="en_memo_spa/" element={<MainHome />}></Route>
-          <Route path="en_memo_spa/list" element={<MainListOfCards />}></Route>
-          <Route path="en_memo_spa/cards" element={<MainCards />}></Route>
-          <Route path="en_memo_spa/*" element={<Missing />}></Route>
+          <Route path="/" element={<MainHome />}></Route>
+          <Route path="/list" element={<MainListOfCards />}></Route>
+          <Route path="/cards" element={<MainCards />}></Route>
+          <Route path="/*" element={<Missing />}></Route>
         </Routes>
         <Footer />
       </div>
