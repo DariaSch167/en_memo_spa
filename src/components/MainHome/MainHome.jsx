@@ -14,7 +14,7 @@ function MenuElement() {
               <img src={HomeBg} alt="English memo" />
             </div>
             <div className="main__home-btn">
-              <Link to="/en_memo_spa/cards">
+              <Link to="/cards">
                 <button id="home-btn__go">Let's go!</button>
               </Link>
             </div>

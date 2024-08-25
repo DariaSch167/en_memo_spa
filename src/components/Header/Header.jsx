@@ -21,13 +21,13 @@ function Header() {
           </Link>
           <nav>
             <div className="header__menu">
-              <Link to="/en_memo_spa/" className="header__title-link">
+              <Link to="/" className="header__title-link">
                 <MenuElement img={headerHome} name="Home" />
               </Link>
-              <Link to="/en_memo_spa/list" className="header__title-link">
+              <Link to="/list" className="header__title-link">
                 <MenuElement img={headerList} name="List" />
               </Link>
-              <Link to="/en_memo_spa/cards" className="header__title-link">
+              <Link to="/cards" className="header__title-link">
                 <MenuElement img={headerCard} name="Card" />
               </Link>
             </div>
