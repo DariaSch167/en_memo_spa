@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/en_memo_spa/static/css/main.a643ad15.css",
+    "main.js": "/en_memo_spa/static/js/main.9dfa6d3c.js",
+    "static/js/453.baddf593.chunk.js": "/en_memo_spa/static/js/453.baddf593.chunk.js",
+    "static/media/main_home-bg.jpg": "/en_memo_spa/static/media/main_home-bg.46cdc8bcfd10930b61d4.jpg",
+    "static/media/main_404-page.png": "/en_memo_spa/static/media/main_404-page.56f9397a098a67a4c944.png",
+    "static/media/header_menu-list.svg": "/en_memo_spa/static/media/header_menu-list.eb8e12ff4f051efad8a7174bee719e73.svg",
+    "static/media/card_result-alert.svg": "/en_memo_spa/static/media/card_result-alert.f5ecdf8b25a42e6a363dade9707004d0.svg",
+    "static/media/card-line__undo.svg": "/en_memo_spa/static/media/card-line__undo.b2f583be95c7bc9aa0e3bd89f85aedbf.svg",
+    "static/media/card-line__save.svg": "/en_memo_spa/static/media/card-line__save.441d6f077bcb4e979cd9685c8c774a4c.svg",
+    "static/media/footer_git.svg": "/en_memo_spa/static/media/footer_git.aa51df2d0c3d3a4eca773bfc751df61c.svg",
+    "static/media/header_menu-home.svg": "/en_memo_spa/static/media/header_menu-home.7a788272653f3437fc0b6fcf7f7c405d.svg",
+    "static/media/header_logo.svg": "/en_memo_spa/static/media/header_logo.bd28c36d9ca9f652db3e72df873ec5f9.svg",
+    "static/media/card-line__edit.svg": "/en_memo_spa/static/media/card-line__edit.9f8ceb6dac414d659d85b0f95530a341.svg",
+    "static/media/card-line__delete.svg": "/en_memo_spa/static/media/card-line__delete.5dde715c808dc4459a90147dcdd60d13.svg",
+    "index.html": "/en_memo_spa/index.html",
+    "static/media/header_menu-card.svg": "/en_memo_spa/static/media/header_menu-card.38af07691bafa7ca44d28693dd7f82cd.svg",
+    "static/media/card_prev-arrow.svg": "/en_memo_spa/static/media/card_prev-arrow.4099496fb83a8267161381bde48e0964.svg",
+    "static/media/card_next-arrow.svg": "/en_memo_spa/static/media/card_next-arrow.293c562f7cf4add53fded9cffbad4a94.svg",
+    "main.a643ad15.css.map": "/en_memo_spa/static/css/main.a643ad15.css.map",
+    "main.9dfa6d3c.js.map": "/en_memo_spa/static/js/main.9dfa6d3c.js.map",
+    "453.baddf593.chunk.js.map": "/en_memo_spa/static/js/453.baddf593.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a643ad15.css",
+    "static/js/main.9dfa6d3c.js"
+  ]
+}
