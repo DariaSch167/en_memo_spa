@@ -8,7 +8,7 @@ import Missing from "./components/Missing/Missing.jsx";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/en_memo_spa">
       <div className="App">
         <Header />
         <Routes>
