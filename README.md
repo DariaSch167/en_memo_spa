@@ -2,6 +2,8 @@
 
 A study tool to increase English vocabulary using memo cards.
 
+https://dariasch167.github.io/en_memo_spa/
+
 ## App features
 
  1. Home page: to start the journey
@@ -16,8 +18,7 @@ A study tool to increase English vocabulary using memo cards.
 ## Stack 
 React, React Router, React Context, SCSS
 
-## Deployment
-https://dariasch167.github.io/en_memo_spa/
+## Preview
 
 ![image](https://github.com/user-attachments/assets/916b7280-4c95-456f-89b1-b3219996e522)
 
